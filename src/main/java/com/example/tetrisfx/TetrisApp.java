@@ -25,6 +25,7 @@ public class TetrisApp extends Application {
     Pane pane = new Pane();
     List<List<Integer>> occupiedSquares = new ArrayList<>(); // 2D ArrayList which contains the coordinates of the occupied squares
     Group drawnSquares = new Group();
+    Text scoreText = new Text();
     int count = 0;
     int clearedY = 0;
     int clearedLines = 0;
@@ -185,8 +186,8 @@ public class TetrisApp extends Application {
     public void draw() {
         // draws the occupiedSquares
         drawnSquares.getChildren().clear();
-
-        Text scoreText = new Text(100, HEIGHT - 50, "Score: " + score);
+        pane.getChildren().remove(scoreText);
+        scoreText = new Text(15, HEIGHT - 30, "Score: " + score);
         scoreText.setFont(Font.font("Open Sans", FontWeight.BOLD, 24)); // Adjust the font size as needed
         pane.getChildren().add(scoreText);
 
